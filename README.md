@@ -17,12 +17,27 @@ docker run --runtime=nvidia -d -v $PWD:/dli/task --shm-size=16g -p 8888:8888 -p 
 #for part3
 
 docker run --runtime=nvidia -d -v $PWD:/dli/task --shm-size=16g --net=host --ulimit memlock=-1 --ulimit stack=67108864 nvcr.io/nvidia/dli/dli-nlp-nemo:v3-nemo1.0.1
-
 ```
+
+Go to the container shell:
+```commandline
+docker exec -it {dli-nlp-nemo-container-name} sh
+
+Example:
+docker exec -it focused_bell sh
+```
+Install bertviz
+```commandline
+pip install bertviz
+```
+
+
 #### Triton Server (Part3)
 Docker image [Triton server ](https://github.com/triton-inference-server/server)
 
 Apply step 2 and 3 ([Serve a Model in 3 Easy Steps](https://github.com/triton-inference-server/server?tab=readme-ov-file#serve-a-model-in-3-easy-steps))
+
+https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/getting_started/quickstart.html
 
 
 
