@@ -44,3 +44,5 @@ https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/get
 # Known issues
 
 In you get the cuda out of memory error, try change the `batch_size` for the model training
+
+Part_2 3.2 not tested for cuda out of memory error
