@@ -28,7 +28,6 @@ trainer:
   val_check_interval: 1.0  # Set to 0.25 to check 4 times per epoch, or an int for number of iterations
   resume_from_checkpoint: null # The path to a checkpoint file to continue the training, restores the whole state including the epoch, step, LR schedulers, apex, etc.
   num_sanity_val_steps: 0 # number of steps to perform validation steps for sanity check the validation process before starting the training, setting to 0 disables it
-
   checkpoint_callback: False  # Provided by exp_manager
   logger: False  # Provided by exp_manager
 
@@ -62,7 +61,7 @@ model:
 
   train_ds:
     file_path: null
-    batch_size: 64
+    batch_size: 16
     shuffle: true
     num_samples: -1 # number of samples to be considered, -1 means all the dataset
     num_workers: 3
@@ -71,7 +70,7 @@ model:
 
   validation_ds:
     file_path: null
-    batch_size: 64
+    batch_size: 16
     shuffle: false
     num_samples: -1 # number of samples to be considered, -1 means all the dataset
     num_workers: 3
@@ -80,7 +79,7 @@ model:
 
   test_ds:
     file_path: null
-    batch_size: 64
+    batch_size: 16
     shuffle: false
     num_samples: -1 # number of samples to be considered, -1 means all the dataset
     num_workers: 3
@@ -115,4 +114,4 @@ exp_manager:
   exp_dir: "./data_text_output"  # exp_dir for your experiment, if None, defaults to "./nemo_experiments"
   name: "TextClassification"  # The name of your model
   create_tensorboard_logger: True  # Whether you want exp_manger to create a tb logger
-  create_checkpoint_callback: True  # Whether you want exp_manager to create a modelcheckpoint callback
+  create_checkpoint_callback: False  # Whether you want exp_manager to create a modelcheckpoint callback
